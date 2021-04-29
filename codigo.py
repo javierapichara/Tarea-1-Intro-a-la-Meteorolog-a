@@ -71,6 +71,25 @@ ax2.grid()
 ax3.grid()
 fig14.savefig('Serie de Tiempo de Dirección del viento parque OHiggins', dpi=400)
 
+#################### Serie de tiempo direccion filtrada #########################
+
+Data.u  <-2
+Data[Data.u <-2]=np.nan
+Data.v  <-2
+Data[Data.v <-2]=np.nan
+
+fig15 = plt.figure(15)
+ax17 = fig15.add_subplot(211)
+ax17.plot(Data.index, Data.u)
+ax18 = fig15.add_subplot(212)
+ax18.plot(Data.index, Data.v)
+ax17.set_title('Serie de tiempo de Dirección del Viento en estación Parque OHiggins')
+ax17.set_ylabel('u [m/s]')
+ax18.set_ylabel('v [m/s]')
+ax18.set_xlabel('Fecha')
+ax17.grid()
+ax18.grid()
+fig15.savefig('Serie de Tiempo de Dirección del viento parque OHiggins', dpi=400)
 
 ######################### Serie de tiempo temperatura ########################
 

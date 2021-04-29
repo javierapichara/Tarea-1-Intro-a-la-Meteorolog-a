@@ -171,7 +171,6 @@ ax12.plot(ciclo_estacional.index, Dir_horario)
 ax12.set_xlabel('Mes')
 ax12.set_ylabel('Dirección[m/s]')
 ax12.set_title('Ciclo Estacional de Dirección del Viento en estación Parque OHiggins')
-ax12.legend()
 ax12.grid()
 fig9.savefig('Ciclo Estacional Direccion parque OHiggins', dpi=400)
 

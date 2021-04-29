@@ -95,11 +95,13 @@ ciclo_diario = Data_aux.groupby(Data_aux.index.hour).mean()
 
 u_diario = Data_aux.u.groupby(Data_aux.index.hour).mean()
 v_diario = Data_aux.v.groupby(Data_aux.index.hour).mean()
+
 Viento_magnitud_diario = np.sqrt(u_diario**2 + v_diario**2)
+
 fig12 = plt.figure(12)
 fig12.clf()
 ax16 = fig12.add_subplot(111)
-ax16.plot(ciclo_diario.index, ciclo_diario.velocidad)
+ax16.plot(ciclo_diario.index, Viento_magnitud_diario)
 ax16.set_xlabel('Hora')
 ax16.set_ylabel('Magnitud [m/s]')
 ax16.set_title('Ciclo Diario de Magnitud del Viento en estación Parque OHiggins')
@@ -109,8 +111,6 @@ fig12.savefig('Ciclo Diario magnitud de viento parque OHiggins', dpi=400)
 
 ############################## Ciclo Diario Direccion ########################
 
-u_diario = Data_aux.u.groupby(Data_aux.index.hour).mean()
-v_diario = Data_aux.v.groupby(Data_aux.index.hour).mean()
 Dir_diario = np.mod(270 - 180*np.angle(u_diario+v_diario*1j)/np.pi,360)
 
 fig13 = plt.figure(13)
@@ -146,6 +146,7 @@ ciclo_estacional = Data_aux.groupby(Data_aux.index.month).mean()
 
 u_est = Data_aux.u.groupby(Data_aux.index.month).mean()
 v_est = Data_aux.v.groupby(Data_aux.index.month).mean()
+
 Viento_magnitud_estacional = np.sqrt(u_est**2 + v_est**2)
 
 fig8 = plt.figure(8)
@@ -161,8 +162,6 @@ fig8.savefig('Ciclo Estacional magnitud parque OHiggins', dpi=400)
 
 ###################### Ciclo Estacional Dirección ########################
 
-u_est = Data_aux.u.groupby(Data_aux.index.month).mean()
-v_est = Data_aux.v.groupby(Data_aux.index.month).mean()
 Dir_horario = np.mod(270 - 180*np.angle(u_est+v_est*1j)/np.pi,360)
 
 fig9 = plt.figure(9)
